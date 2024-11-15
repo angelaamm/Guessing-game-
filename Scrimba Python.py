@@ -32,6 +32,7 @@ print(msg[:7])'''
 #msg1=msg[18]+' '+msg[:8]+msg[25:29]+msg[7:11]+msg[13]+msg[12]+msg[2]+msg[1]+msg[-5]
 msg1=msg[:7]+ msg[24:28]+msg[8:10]+msg[8]+msg[12]+msg[2]+msg[6]+msg[24]
 print(msg1.upper())'''
+
 #Strings
 '''msg="""Dear Mrs Sainyi,,
 your son Musa has been caught climbing a an avocado tree
@@ -54,6 +55,7 @@ print("You are "+age+ "years old")'''
 # distance_km=float(input("Distance in km"))
 # distance_miles=float(distance_km)/1.609
 # print(f"Hello {name.title()} {distance_km} km is equal to {round(distance_miles,1)} miles.")
+#Lists
 '''"sales_w1 = [7,3,42,19,15,35,9]
 sales_w2 = [12,4,26,10,7,28]
 sales = []
@@ -408,3 +410,276 @@ with open("Houses.txt","a") as file:
 with open("Houses.txt","r") as file:
     print(file.read())'''
 # Execptions try/except,raise
+'''try:
+    num=int(input("Enter a number: "))
+    print(f"45 divided by {num} is ",45/num)
+except:
+    print("Invalid input")
+print("Thanks for your playing")'''
+#error code
+'''try:
+    num = int(input("Enter a number: "))
+    print(f"45 divided by {num} is: ", 45 / num)
+except ZeroDivisionError:
+    print("Cannot divide by 0!")
+except ValueError:
+    print("Input Error")
+except:
+    print("Error")
+print("Thanks for playing!")'''
+'''try:
+    num=int(input("Enter a number: "))
+    num1=30/num
+    if num > 30:
+        raise ValueError(num)
+except ValueError:
+    print("Invalid input number is greater than 30")
+except ZeroDivisonValue:
+    print("Cannot divide by 0")
+else:
+    print(f"30 divided by {num} is: ",30/num)
+finally:
+    print("Thanks for playing!!!")'''
+#Classes & Objects
+#Classes are blueprints
+#Objects are the actual things you built
+#variables => attributes
+#functions => methods
+'''class Book:
+    def __init__(self,title,author,year,have_read):
+        self.title=title
+        self.author=author
+        self.year=year
+        self.have_read=have_read
+Book_1=Book("A little life","Hana Yanagihara",2015,True)
+print(Book_1.title,Book_1.author,Book_1.year)'''
+'''class Book:
+    def __init__(self,title,author,year,have_read):
+        self.title=title
+        self.author=author
+        self.year=year
+        self.have_read=have_read
+    def nice_print(self):
+        print("title: ",self.title)
+        print("author: ",self.author)
+        print("year: ",self.year)
+        print("have_read: ",self.have_read)
+Book_1=Book("A little life","Hana Yanagihara",2015,True)
+print(Book_1.title,Book_1.author)
+Book_1.nice_print()'''
+'''class Movie:
+    def __init__(self, title, year, imdb_score, have_seen):
+        self.title = title
+        self.year = year
+        self.imdb_score = imdb_score
+        self.have_seen = have_seen
+    def nice_print(self):
+        print("Title: ", self.title)
+        print("Year of production: ", self.year)
+        print("IMDB Score: ", self.imdb_score)
+        print("I have seen it: ", self.have_seen)
+film_1 = Movie("Life of Brian", 1979, 8.1, True)
+film_2 = Movie("The Holy Grail", 1975, 8.2, True)
+# film_1.nice_print()
+films = [film_1, film_2]
+print(films[1].title, films[0].title)
+films[0].nice_print()'''
+#Inheritance
+'''class Person:
+    def move():
+        print("moves 4 steps")
+    def bend():
+        print("going down")
+class Man(Person):
+    def shoot():
+        print("fires 4 rounds")
+class Medic(Person):
+    def heal():
+        print("heals")
+character_1=Medic
+character_1.heal()'''
+#Modules
+'''import platform
+print(platform.python_version())'''
+'''from platform import python_version,system
+print(python_version())
+print(system())'''
+#Zip/Unzip
+#Zip
+'''num=1,2,3,4
+letters="w","x","y","z"
+names="Juba","Athi","Tana","Pangani"
+combo=list(zip(num,letters,names))
+print(combo)
+#Unzip
+num,letters,names=zip(*combo)
+print(num,letters,names)'''
+#Zip
+'''eng="I love you"
+germ="Ich liebe dich"
+eng=eng.split()
+germ=germ.split()
+print(eng,germ)
+combo=dict(zip(eng,germ))
+print(combo)
+#Unzip
+combo=list(combo.keys()),list(combo.values())
+print(combo)'''
+#Lambda Functions
+# def square (x):
+#     return x*x
+# square= lambda x:x*x
+# print(square(5))
+# square=lambda x:x*x
+# print(square(5))
+# dm=lambda x,y:4*x*y
+# print(dm(2,3))
+# name_and_alias= lambda name,alias:name.strip().title() +':'+ alias.strip().title()
+# print(name_and_alias("Angela", "Biimo"))
+#Ordering by their first names
+'''Abadi=["Lucille Amusala","Sharleen Gakuru","Naito Muriithi","Promise Charles","Patience Mburu"]
+Abadi.sort(key=lambda name:name.split(" "))
+print(Abadi)
+#Ordering by their Last names
+Abadi=["Lucille Amusala","Sharleen Gakuru","Naito Muriithi","Promise Charles","Patience Mburu"]
+Abadi.sort(key=lambda name:name.split(" ")[-1])
+print(Abadi)
+'''
+'''def price_calc(start,hourly_rate):
+    return lambda hours: start + hourly_rate * hours
+walkin_cost = price_calc(10,30)
+print(walkin_cost(2))
+premium_cost = price_calc(1,25)
+print(premium_cost(2))
+print((lambda a,b,c: a+b+c)(2,3,4))'''
+'''def strip_spaces(str):
+   return ''.join(str.split(' '))
+#write equivalent lambda and insert Lambda here
+strip_spaces1 = lambda str:''.join(str.split(' '))
+print(strip_spaces1('Monty Pythons Flying Circus'))'''
+'''def join_list_no_duplicates(list_a,list_b):
+   return list(set(list_a + list_b))
+list_a = [1,2,3,4]
+list_b = [3,4,5,6,7]
+#write lambda below 
+join_list_no_duplicates1 = lambda list_a,list_b:list(set(list_a + list_b))
+print(join_list_no_duplicates1(list_a,list_b))'''
+#Complete the function so it returns a function
+def create_quad_func(a,b,c):
+    '''return function f(x) = ax^2 + bx + c'''
+    return lambda x: a*x**2 + b*x + c
+'''f = create_quad_func(2,4,6)
+g = create_quad_func(1,2,3)
+print(f(2))
+print(g(2))
+signups = ['MPF104', 'MPF20', 'MPF2', 'MPF17', 'MPF3', 'MPF45']
+print(sorted(signups)) # Lexicographic sort
+#write sorting by integer
+print(sorted(signups,key = lambda id:int(id[3:])))'''
+'''class Player:
+   def __init__(self, name, score):
+       self.name = name
+       self.score =  score
+Eric = Player('Eric', 116700)
+John = Player('John', 24327)
+Terry = Player('Terry', 150000)
+player_list = [Eric, John, Terry]
+#Exercise: Sort this by score using lambda!
+player_list.sort(key = lambda playyer: playyer.score)
+player_list.sort(key = lambda playyer: playyer.score, reverse = True)
+print([player.name for player in player_list])'''
+#Comprehensions LISTS
+#list with num squared for each num in numbers
+'''numbers=[1,2,3,4,5,6,7,8,9]
+num_1=[]
+for num in numbers:
+    num_1.append(num*num)
+print(num_1)
+num_1=[num*num for num in numbers]
+print(num_1)
+#a list with num for each num in numbers if num is even
+num_1=[num for num in numbers if num %2==0]
+print(num_1)
+# a list if num is odd
+num_1=[num for num in numbers if num%2==1]
+print(num_1)
+# using lambda
+num_1= filter(lambda num: num %2==0,numbers)
+print(list(num_1))'''
+#a (letter, num) pair for each letter in 'spam' and each number in '0123'
+'''new_list=[]
+for letter in 'spam':
+    for number in range(4):
+        new_list.append((letter,number))
+print(new_list)
+new_list=[(letter, number) for letter in 'spam' for number in range(4)]
+print(new_list)'''
+#Comprehensions Dictionaries
+'''movies = ["And Now for Something Completely Different","Monty Python and the Holy Grail",
+"Monty Python's Life of Brian","Monty Python Live at the Hollywood Bowl","Monty Python's The Meaning of Life","Monty Python Live (Mostly)"]
+year =[1971,1975,1979,1982,1983,2014]
+names = ['John','Eric','Michael','Graham','Terry','TerryG']
+# print(list(zip(movies, year)))
+# new_dict=()
+# new_dict={movie: yr for movie, yr in zip(movies,year)}
+# print(new_dict)
+n1=[(name,movie,yr) for name,movie,yr in zip(names,movies,year) if yr<1981]
+print(n1)'''
+#Randomness
+import random
+'''print(random.random())
+for i in range(5):
+    print(random.random())
+for i in range(5):
+    print(random.random()*6)
+for i in range(5):
+    print(random.uniform(2,6))
+for i in range(5):
+    print(random.randint(1,6))'''
+'''friends_list=["Annika","Zaara","Kiela","Melody","Andre"]
+print(random.choice(friends_list))
+print(random.sample(friends_list,(2)))
+random.shuffle(friends_list)
+print(friends_list)'''
+'''import random, string
+smallcaps = 'mindy'
+largecaps = 'MINDY'
+digits = '0123456789'
+letters_numbers = string.ascii_lowercase + string.digits
+word= ''
+print(letters_numbers)
+for i in range(5):
+     word = word + random.choice(letters_numbers)
+print(word)
+word1= "".join(random.sample(letters_numbers,7))
+print(word1)'''
+#Timeit and Performance
+#To find prime numbers within a certain range
+import timeit
+
+print('Performance and Timeit module')
+# Experiment with sieve of Eratosthenes
+def test1():
+    [x for x in range(1, 151) if not any([x % y == 0 for y in range(2, x)]) and not x == 1]
+    return(1)
+def test2():
+    [x for x in range(2, 151) if not any([x % y == 0 for y in range(2, x)])]
+def test3():
+    # Initialize a list
+    primes = []
+    for possiblePrime in range(2, 151):
+    # Assume number is prime until shown it is not.
+        isPrime = True
+        for num in range(2, int(possiblePrime ** 0.5) + 1):
+            if possiblePrime % num == 0:
+                isPrime = False
+                break
+        if isPrime:
+            primes.append(possiblePrime)
+    #print(primes)
+    return(1)
+
+print(timeit.timeit('test1()', globals=globals(), number=10))
+print(timeit.timeit('test2()', globals=globals(), number=10))
+print(timeit.timeit('test3()', globals=globals(), number=10))
+
